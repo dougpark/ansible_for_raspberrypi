@@ -1,0 +1,12 @@
+[local]
+frodo.local
+
+[all]
+frodo.local
+link.local
+solo.local
+pihole.local
+zelda.local
+
+[all:vars]
+ansible_user=pi

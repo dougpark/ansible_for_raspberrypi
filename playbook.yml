@@ -1,0 +1,9 @@
+---
+- hosts: local
+  become: no
+  tasks:
+
+  - name: list ~/bin directory.
+    command: >
+      ls ~/bin
+
