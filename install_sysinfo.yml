@@ -1,0 +1,20 @@
+---
+  # Run for these hosts in inventory file
+  # Do not become root
+- hosts: all
+  become: no
+
+  # Run these tasks
+  tasks:
+
+  # Named task
+  # Use command: for simpler scripts, preferred over shell: when possible.
+  # Use shell: for complex scripts with variables, etc.
+  - name: install sysinfo from github.
+    shell:
+      cmd: 
+        wget -q -O - https://raw.githubusercontent.com/dougpark/RaspberryPi_sysinfo/master/install.sh | bash
+
+    register: result
+  - debug: var=result['stdout_lines']
+

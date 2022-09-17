@@ -1,16 +1,17 @@
 ---
   # Run for these hosts in inventory file
   # Do not become root
-- hosts: all
+- hosts: link.local
   become: no
 
   # Run these tasks
   tasks:
 
   # Named task
-  - name: list ~/bin directory.
+  # Use command: for simpler scripts, preferred over shell: when possible.
+  - name: run ~/bin/rsysinfo.
     command: >
-      ls ~/bin
+      ~/bin/rsysinfo
     register: result
   - debug: var=result['stdout_lines']
 
